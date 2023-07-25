@@ -1,10 +1,9 @@
-export interface Product {
+export type Product = {
     id: string;
     name: string;
     unitPrice: number;
     sold: number;
-
-    getRevenue(): number;
+    selected: boolean;
 }
 
 
@@ -22,6 +21,10 @@ export const totalRevenue = (products: Product[]): number => {
     return products.reduce((sum, curr) => {
         return sum + getRevenue(curr.unitPrice, curr.sold)
     }, 0);
+}
+
+export const getSorted = (products: Product[]): Product[] => {
+    return products.sort((a: Product, b: Product) => a.name.localeCompare(b.name));
 }
 
 const ApiService = {
