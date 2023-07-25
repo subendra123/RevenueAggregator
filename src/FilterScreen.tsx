@@ -2,7 +2,7 @@ import {getSorted, Product} from "./ApiService";
 
 type FilterScreenProps = {
     products: Product[]
-    onClose: (products: Product[]) => void
+    onClose: (products: Product[] | null) => void
 }
 
 const FilterScreen = ({products, onClose}: FilterScreenProps) => {
@@ -16,7 +16,7 @@ const FilterScreen = ({products, onClose}: FilterScreenProps) => {
                 <div>
                     <button onClick={onApply}>Apply</button>
                     <button onClick={() => {
-                        onClose([]);
+                        onClose(null);
                     }}><i className="ri-close-line"/></button>
                 </div>
             </div>

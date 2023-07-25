@@ -99,12 +99,13 @@ function App() {
                 </div>
             </div>
             {showFilter ? <FilterScreen onClose={(products) => {
+                setShowFilter(false);
+                if (products == null) return;
                 if (products.length > 0) {
                     setProducts(products);
                 } else {
                     setProducts(allProducts);
                 }
-                setShowFilter(false);
             }} products={allProducts}/> : null}
 
         </>
